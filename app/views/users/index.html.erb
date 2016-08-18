@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calendar</title>
+</head>
+<body>
+	<div id="container">
+		<div id='logo'>
+			<h1>C</h1>
+			<h1>A</h1>
+			<h1>L</h1>
+			<h1>E</h1>
+			<h1>N</h1>
+			<h1>D</h1>
+			<h1>M</h1>
+			<h1>E</h1>
+		</div>
+		<div id='content'>
+			<div id='quote'>
+				<h1>What Would You Do In A Day?</h1>
+			</div>
+			<div id='description'>
+				<div class='one'>
+					<%= image_tag("calendarimg.jpg",  alt: "like") %>
+					<p><span>Seemlessly</span> add important tasks to your day with color coding tags to specify what type of event it is</p>
+				</div>
+				<div class='one'>
+					<%= image_tag("email_img.png",  alt: "like") %>
+					<p><span>Remind</span> yourself of important events by sending out email notications once or multiple times before the important time arrives
+				</div>
+				<div class='one'>
+				<%= image_tag("task_img.jpeg",  alt: "like") %>
+					<p><span>Glance</span> at your entire week to better see how busy you really are!</p>
+				</div>
+			</div>	
+			<div class='reg_signup'>
+				<div class='two'>
+					<h1>New Here?</h1>
+					<form action='users/register' method='get'>
+						<button>Click to Sign Up</button>
+					</form>
+				</div>
+				<div class='two'>
+					<h1>Take Me to My Schedule</h1>
+					<form action='users/login' method='get'>
+						<button >Log In</button>
+					</form>
+				</div>		
+		</div>
+	</div>
+</body>
+</html>
+
+
+

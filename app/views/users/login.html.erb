@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+</head>
+<body>
+	<div id='container'>
+		<div id='login'>
+			<% if flash[:errors] %>
+				<ul>
+				<% flash[:errors].each do |error| %>
+				<li class='login_errors'><%= error %></li>
+				<% end %>
+			<% end %>
+			<form action='/users/signIn' method='post' id='reg_form'>
+			<input type ='hidden' name = "authenticity_token" value ="<%= form_authenticity_token%>">
+				<ul>
+					<li class='register_class'>
+						<label for='email'>Email</label>
+						<input type='text' name='user[email]'>
+						<span class='reg_sign'>Enter Your Email</span>
+					</li>
+
+					<li class='register_class'>
+						<label for='password'>Password</label>
+						<input type='text' name='user[password]'>
+						<span class='reg_sign'>Enter Password</span>
+					</li>
+				</ul>
+				<input type='submit' value='Sign In' id='register_button'>
+			</form>
+		</div>
+		<div id='concerns'>
+			<h2>Hope that you are enjoying the CalendMe App!</h2>
+			<p>We work hard every day to provide you with the easiest way to plan your day and upcoming events</p>
+			<p>If you have any questions or concerns, please feel free to leave us a message here and explain your issues</p>
+			<form action='/users' method='post'>
+				<textarea id='concerns'></textarea>
+				<input type='submit' value='Submit' id='concerns_button'>
+			</form>
+
+		</div>
+
+	</div>
+	</body>
+</html>
