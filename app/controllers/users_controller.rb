@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 	@user= User.new(user_params)
 		if @user.save
 			session[:user_id] = @user.id
-			redirect_to "/users/#{session[:user_id]}"
+			redirect_to "/calendars/#{session[:user_id]}"
 		else
 			flash[:errors] = @user.errors.full_messages
 			redirect_to "/users/register"
@@ -21,9 +21,11 @@ class UsersController < ApplicationController
 
 	def signIn
 		user = User.find_by_email(params[:email])
+			puts ""
 		if user && user.authenticate(params[:password]) 
+			puts "yay i did it correctly!"
 			session[:user_id] = user.id
-			redirect_to "/users/#{user.id}"
+			redirect_to "/calendars/#{user.id}"
 		else
 			flash[:errors]= ['Invalid Combination']
 			redirect_to '/users/login'

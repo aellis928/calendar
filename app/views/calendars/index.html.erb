@@ -1,2 +1,96 @@
-<h1>Calendars#index</h1>
-<p>Find me in app/views/calendars/index.html.erb</p>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<div id='container_calendar'>
+	<div id='left_calendar'>
+		<div id='welcome'>
+			<h1>Welcome Back,
+				<p><%=@user.first_name%>!</p>
+				<h5>Let's get to it!</h5>
+		</div>
+		<div id='schedule'>
+			<h2>Here are your upcoming Events for today</h2>
+			<h5>First Event Here</h5>
+			<h5>Second Event Here</h5>
+			<h5>Third Event Here</h5>
+
+		</div>
+	</div>
+	<div id='right_calendar'>
+		<h2>Today is January 23, 2016</h2>
+		<div id='times'>
+		<h3>5am</h3><p>this is an event</p>
+		<h3>6am</h3><p>This is an event1</p>
+		<h3>7am</h3>
+		<h3>8am</h3>
+		<h3>9am</h3>
+		<h3>10am</h3>
+		<h3>11am</h3>
+		<h3>12pm</h3>
+		<h3>1pm</h3>
+		<h3>2pm</h3>
+		<h3>3pm</h3>
+		<h3>4pm</h3>
+		<h3>5pm</h3>
+		<h3>6pm</h3>
+		<h3>7pm</h3>
+		<h3>8pm</h3>
+		</div>
+	</div>
+	<div id='add_event'>
+		<form action='/' method='post'>
+			<div id='new_event'>
+			<h2>Add an Event to My Calendar</h2>
+			<form action='/' method='post' id='event_form'>
+			<input type ='hidden' name = "authenticity_token" value ="<%= form_authenticity_token%>">
+			<ul>
+					<li class='new_event_class'>
+						<label for='event'>Name</label>
+						<input type='text' name='event[name]'>
+						<span class='new_event_span'>Name of Your Event</span>
+					</li>
+					<li class='new_event_class'>
+						<label for='description'>Description</label>
+						<input type='text' name='event[description]'>
+						<span class='new_event_span'>Describe it</span>
+					</li>
+					<li class='new_event_class'>
+						<label for='location'>Location</label>
+						<input type='text' name='event[location]'>
+						<span class='new_event_span'>Where will it be?</span>
+					</li>
+					<li class='new_event_class'>
+						<label for='date'>Date</label>
+						<input type='date' name='event[date]'>
+						<span class='new_event_span'>What Day Will it Be</span>
+					</li>
+					<li class='new_event_class'>
+					<label for='time'>time</label>
+						Time
+						<input type='time' name='event[time]'>
+						<span class='new_event_span'>What time will it be?</span>
+					</li>
+					<li class='new_event_class'>
+					<label for='color'>Color</label>	
+						<input type='color' name='event[color'>
+						<span class='new_event_span'>Choose Your Event Color</span>
+					</li>
+					<li class='new_event_class'>
+						Email Notification?
+						<input type='checkbox' name='event[notify]' value='Yes'>
+						<input type='checkbox' name='event[notify]' value='No'>
+						<span class='new_event_span'>Need a Reminder?</span>
+					</li>
+					<input type='submit' value='Submit'>
+			</form>
+			</div>
+		</form>
+	</div>
+</div>
+
+</body>
+</html>
