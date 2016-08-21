@@ -21,7 +21,8 @@
 		</div>
 	</div>
 	<div id='right_calendar'>
-		<h2>Today is January 23, 2016</h2>
+		<h2>Today is <%=@time%>, <%=@time_date%></h2>
+		
 		<div id='times'>
 		<h3>5am</h3><p>this is an event</p>
 		<h3>6am</h3><p>This is an event1</p>
@@ -42,11 +43,16 @@
 		</div>
 	</div>
 	<div id='add_event'>
-		<form action='/' method='post'>
+		<form action='/events/create' method='post'>
 			<div id='new_event'>
 			<h2>Add an Event to My Calendar</h2>
-			<form action='/' method='post' id='event_form'>
 			<input type ='hidden' name = "authenticity_token" value ="<%= form_authenticity_token%>">
+				<% if flash[:errors] %>
+				<ul>
+				<% flash[:errors].each do |error| %>
+				<li><%= error %>
+				<% end %>
+			<% end %>
 			<ul>
 					<li class='new_event_class'>
 						<label for='event'>Name</label>
@@ -63,23 +69,23 @@
 						<input type='text' name='event[location]'>
 						<span class='new_event_span'>Where will it be?</span>
 					</li>
-					<li class='new_event_class'>
+					<li class='new_event_class1'>
 						<label for='date'>Date</label>
 						<input type='date' name='event[date]'>
 						<span class='new_event_span'>What Day Will it Be</span>
 					</li>
-					<li class='new_event_class'>
+					<li class='new_event_class1'>
 					<label for='time'>time</label>
 						Time
 						<input type='time' name='event[time]'>
 						<span class='new_event_span'>What time will it be?</span>
 					</li>
-					<li class='new_event_class'>
+					<li class='new_event_class1'>
 					<label for='color'>Color</label>	
 						<input type='color' name='event[color'>
 						<span class='new_event_span'>Choose Your Event Color</span>
 					</li>
-					<li class='new_event_class'>
+					<li class='new_event_class1'>
 						Email Notification?
 						<input type='checkbox' name='event[notify]' value='Yes'>
 						<input type='checkbox' name='event[notify]' value='No'>

@@ -99,12 +99,24 @@ light grey -->#EFEFEF
 .new_event_class{
 	display: block;
 	padding: 3px;
-	border-top: 1px solid white;
-	border-left: 1px solid white;
-	border-right: 1px solid white;
+	border-top: 5px solid white;
+	border-left: 5px solid white;
+	border-right: 5px solid white;
 	margin-bottom: 20px;
 	border-radius:5px 5px 0px 0px;
 	height:50px;
+	width:300px;
+}
+
+.new_event_class1{
+	display: block;
+	padding: 3px;
+	border-top: 5px solid white;
+	border-left: 5px solid white;
+	border-right: 5px solid white;
+	margin-bottom: 20px;
+	border-radius:5px 5px 0px 0px;
+	height:30px;
 	width:300px;
 }
 
@@ -117,6 +129,7 @@ label{
 	margin-top: -13px;
 	background-color: #CAEBF2;
 	border:none;
+	border-radius: 5px;
 }
 
 .new_event_class input[type="text"]{

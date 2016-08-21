@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 	@user= User.new(user_params)
 		if @user.save
 			session[:user_id] = @user.id
-			redirect_to "/calendars/#{session[:user_id]}"
+			redirect_to "/events/#{session[:user_id]}"
 		else
 			flash[:errors] = @user.errors.full_messages
 			redirect_to "/users/register"
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 		if user && user.authenticate(params[:password]) 
 			puts "yay i did it correctly!"
 			session[:user_id] = user.id
-			redirect_to "/calendars/#{user.id}"
+			redirect_to "/events/#{user.id}"
 		else
 			flash[:errors]= ['Invalid Combination']
 			redirect_to '/users/login'

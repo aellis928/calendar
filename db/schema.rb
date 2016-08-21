@@ -11,19 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818125245) do
+ActiveRecord::Schema.define(version: 20160821031721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "calendars", force: true do |t|
-    t.datetime "date"
+  create_table "events", force: true do |t|
+    t.integer  "user_id"
     t.string   "name"
-    t.string   "note"
+    t.string   "description"
     t.string   "location"
+    t.date     "date"
+    t.time     "time"
+    t.string   "color"
+    t.string   "notify"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name"
