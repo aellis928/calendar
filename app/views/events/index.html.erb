@@ -11,6 +11,9 @@
 			<h1>Welcome Back,
 				<p><%=@user.first_name%>!</p>
 				<h5>Let's get to it!</h5>
+				<% @events.each do |event| %>
+					<%= event.color %>
+				<% end %>
 		</div>
 		<div id='schedule'>
 			<h2>Here are your upcoming Events for today</h2>
@@ -22,10 +25,13 @@
 	</div>
 	<div id='right_calendar'>
 		<h2>Today is <%=@time%>, <%=@time_date%></h2>
-		
 		<div id='times'>
-		<h3>5am</h3><p>this is an event</p>
-		<h3>6am</h3><p>This is an event1</p>
+		<% @events.each do |event| %>
+			<h3>5am</h3>
+				<p><%=event.time%></p>
+			<h3>6am</h3>
+		<p>
+		</p>
 		<h3>7am</h3>
 		<h3>8am</h3>
 		<h3>9am</h3>
@@ -40,13 +46,15 @@
 		<h3>6pm</h3>
 		<h3>7pm</h3>
 		<h3>8pm</h3>
+		<% end %>
 		</div>
 	</div>
 	<div id='add_event'>
 		<form action='/events/create' method='post'>
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<input type='hidden' name='event[user_id]' value='<%=@user.id%>'>
 			<div id='new_event'>
 			<h2>Add an Event to My Calendar</h2>
-			<input type ='hidden' name = "authenticity_token" value ="<%= form_authenticity_token%>">
 				<% if flash[:errors] %>
 				<ul>
 				<% flash[:errors].each do |error| %>
@@ -75,8 +83,7 @@
 						<span class='new_event_span'>What Day Will it Be</span>
 					</li>
 					<li class='new_event_class1'>
-					<label for='time'>time</label>
-						Time
+					<label for='time'>Time</label>
 						<input type='time' name='event[time]'>
 						<span class='new_event_span'>What time will it be?</span>
 					</li>
@@ -87,8 +94,7 @@
 					</li>
 					<li class='new_event_class1'>
 						Email Notification?
-						<input type='checkbox' name='event[notify]' value='Yes'>
-						<input type='checkbox' name='event[notify]' value='No'>
+						<input type='checkbox' name='event[notify]' value='1'>Yes
 						<span class='new_event_span'>Need a Reminder?</span>
 					</li>
 					<input type='submit' value='Submit'>
