@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   post 'events/logout' =>'events#logout'
   get 'events/:id' => 'events#index'
   post 'events/create' => 'events#create'
+  delete 'events/:id/destroy' => 'events#destroy'
 
 end

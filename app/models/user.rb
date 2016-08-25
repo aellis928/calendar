@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	has_many :events
+	has_many :events, dependent: :destroy
 	has_secure_password
   	email_regex = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i
   	validates :first_name, :last_name,  :presence => true

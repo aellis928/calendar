@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   	@time = time.strftime("%A")
   	@time_date = time.strftime("%B %d")
     @events = @user.events
-    # @hour= @user.events.time("")
+    
 
     # so right now I need to figure out how to access the hour of each event? possibly using the above code or a variation of it.  Know that front-end wise, it will be looping through all the posted events of that particular user
 
@@ -18,18 +18,19 @@ class EventsController < ApplicationController
   end
 
   def create 
-    puts params['name']
-    puts params['description']
-    puts params['location']
-    puts params['date']
-    puts params['time']
-    puts params['color']
-    puts params['notify']
-    puts params['user_id']
-
-
+    # puts params['name']
+    # puts params['description']
+    # puts params['location']
+    # puts params['date']
+    # puts params['time']
+    # puts params['color']
+    # puts params['notify']
+    # puts params['user_id']
+    @user = User.find(params['user_id'])
     @event = Event.new( event_params )
+    
     if @event.save
+      CalendarMailer.event_email(@user).deliver
       redirect_to("/events/#{session[:user_id]}")
     else
       flash[:errors] = @event.errors.full_messages
@@ -40,12 +41,15 @@ class EventsController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to("events/#{session[:user_id]}")
   end
 
   def logout
   	session[:user_id] = nil
-	redirect_to '/users/login'
+	redirect_to '/'
   end
 
 
