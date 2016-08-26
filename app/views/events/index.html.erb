@@ -11,6 +11,7 @@
 			<h1>Welcome Back,
 				<p><%=@user.first_name%>!</p>
 				<h5>Let's get to it!</h5>
+				<%= @time_compare %>
 		</div>
 		<div id='schedule'>
 			<h2>Here are your upcoming Events for today</h2>
@@ -25,11 +26,12 @@
 		<div id='times'>
 			<h3>5am</h3>
 				<% @events.each do |event| %>
-				<% if event.time.hour == 5 %>
+				<% if event.time.hour == 5 && event.date = @time_compare  %>
 					<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
 						<form action='/events/<%= event.id %>/destroy' method='post'>
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 							<input type='hidden' name='_method' value='delete'>
+							<input type='hidden' name='user_id' value='<%= @user.id %>'>
 							<button>Remove</button>
 						</form>
 					</div>
@@ -38,6 +40,7 @@
 			<h3>6am</h3>
 				<% @events.each do |event| %>
 					<% if event.time.hour == 6 %>
+					<%= event.date %>
 						<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
 						<form action='/events/<%= event.id %>/destroy' method='post'>
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
