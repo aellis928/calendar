@@ -5,5 +5,19 @@
   </head>
   <body>
     <h1>Hello <%= @user.first_name %></h1>
+
+    <h4>Here is the description of the event</h4>
+    	<%= @event.description %>
+
+    <h4>The location of the event is</h4>
+    	<%= @event.location %>
+
+    <h4>The date of the event is</h4>
+    	<%= @event.date %>
+
+    <h4>The time of the event is </h4>
+    	<%= @event.time %>
+
+    <h5>We truely hope you have a great event! </h5>
   </body>
 </html>

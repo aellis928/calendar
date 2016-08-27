@@ -11,7 +11,7 @@
 			<h1>Welcome Back,
 				<p><%=@user.first_name%>!</p>
 				<h5>Let's get to it!</h5>
-				<%= @time_compare %>
+				<%= @date %>
 		</div>
 		<div id='schedule'>
 			<h2>Here are your upcoming Events for today</h2>
@@ -24,9 +24,9 @@
 	<div id='right_calendar'>
 		<h2>Today is <%=@time%>, <%=@time_date%></h2>
 		<div id='times'>
-			<h3>5am</h3>
-				<% @events.each do |event| %>
-				<% if event.time.hour == 5 && event.date = @time_compare  %>
+			<h3>12am</h3>
+				<% @events.each do |event| %>	
+				<% if (event.time.hour == 0)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
 					<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
 						<form action='/events/<%= event.id %>/destroy' method='post'>
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -35,12 +35,76 @@
 							<button>Remove</button>
 						</form>
 					</div>
-				<%end %>
+				<% end %>
+				<% end %>
+			<h3>1am</h3>
+				<% @events.each do |event| %>	
+				<% if (event.time.hour == 1)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
+					<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
+						<form action='/events/<%= event.id %>/destroy' method='post'>
+							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+							<input type='hidden' name='_method' value='delete'>
+							<input type='hidden' name='user_id' value='<%= @user.id %>'>
+							<button>Remove</button>
+						</form>
+					</div>
+				<% end %>
+				<% end %>
+			<h3>2am</h3>
+				<% @events.each do |event| %>	
+				<% if (event.time.hour == 2)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
+					<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
+						<form action='/events/<%= event.id %>/destroy' method='post'>
+							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+							<input type='hidden' name='_method' value='delete'>
+							<input type='hidden' name='user_id' value='<%= @user.id %>'>
+							<button>Remove</button>
+						</form>
+					</div>
+				<% end %>
+				<% end %>
+			<h3>3am</h3>
+				<% @events.each do |event| %>	
+				<% if (event.time.hour == 3)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
+					<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
+						<form action='/events/<%= event.id %>/destroy' method='post'>
+							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+							<input type='hidden' name='_method' value='delete'>
+							<input type='hidden' name='user_id' value='<%= @user.id %>'>
+							<button>Remove</button>
+						</form>
+					</div>
+				<% end %>
+				<% end %>
+			<h3>4am</h3>
+				<% @events.each do |event| %>	
+				<% if (event.time.hour == 4)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
+					<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
+						<form action='/events/<%= event.id %>/destroy' method='post'>
+							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+							<input type='hidden' name='_method' value='delete'>
+							<input type='hidden' name='user_id' value='<%= @user.id %>'>
+							<button>Remove</button>
+						</form>
+					</div>
+				<% end %>
+				<% end %>
+			<h3>5am</h3>
+				<% @events.each do |event| %>	
+				<% if (event.time.hour == 5)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
+					<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
+						<form action='/events/<%= event.id %>/destroy' method='post'>
+							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+							<input type='hidden' name='_method' value='delete'>
+							<input type='hidden' name='user_id' value='<%= @user.id %>'>
+							<button>Remove</button>
+						</form>
+					</div>
+				<% end %>
 				<% end %>
 			<h3>6am</h3>
 				<% @events.each do |event| %>
-					<% if event.time.hour == 6 %>
-					<%= event.date %>
+					<% if (event.time.hour == 6)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
 						<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
 						<form action='/events/<%= event.id %>/destroy' method='post'>
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -52,7 +116,7 @@
 				<% end %>
 			<h3>7am</h3>
 				<% @events.each do |event| %>
-					<% if event.time.hour == 7 %>
+					<% if (event.time.hour == 7)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
 						<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
 						<form action='/events/<%= event.id %>/destroy' method='post'>
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -64,7 +128,7 @@
 				<% end %>
 			<h3>8am</h3>
 				<% @events.each do |event| %>
-					<% if event.time.hour == 8 %>
+					<% if (event.time.hour == 8)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
 						<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
 						<form action='/events/<%= event.id %>/destroy' method='post'>
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -76,7 +140,7 @@
 				<% end %>
 			<h3>9am</h3>
 				<% @events.each do |event| %>
-					<% if event.time.hour == 9 %>
+					<% if (event.time.hour == 9)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
 						<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
 						<form action='/events/<%= event.id %>/destroy' method='post'>
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -89,7 +153,7 @@
 				<% end %>
 			<h3>10am</h3>
 				<% @events.each do |event| %>
-					<% if event.time.hour == 10 %>
+					<% if (event.time.hour == 10)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
 						<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
 						<form action='/events/<%= event.id %>/destroy' method='post'>
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -102,7 +166,7 @@
 				<% end %>
 			<h3>11am</h3>
 				<% @events.each do |event| %>
-					<% if event.time.hour == 11 %>
+					<% if (event.time.hour == 11)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
 						<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
 						<form action='/events/<%= event.id %>/destroy' method='post'>
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -115,7 +179,7 @@
 				<% end %>
 			<h3>12pm</h3>
 				<% @events.each do |event| %>
-					<% if event.time.hour == 12 %>
+					<% if (event.time.hour == 12)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
 						<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
 						<form action='/events/<%= event.id %>/destroy' method='post'>
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -128,7 +192,7 @@
 				<% end %>
 			<h3>1pm</h3>
 				<% @events.each do |event| %>
-					<% if event.time.hour == 13 %>
+					<% if (event.time.hour == 13)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
 						<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
 						<form action='/events/<%= event.id %>/destroy' method='post'>
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -141,7 +205,7 @@
 				<% end %>
 			<h3>2pm</h3>
 				<% @events.each do |event| %>
-					<% if event.time.hour == 14 %>
+					<% if (event.time.hour == 14)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
 						<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
 						<form action='/events/<%= event.id %>/destroy' method='post'>
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -154,7 +218,7 @@
 				<% end %>
 			<h3>3pm</h3>
 				<% @events.each do |event| %>
-					<% if event.time.hour == 15 %>
+					<% if (event.time.hour == 15)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
 						<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
 						<form action='/events/<%= event.id %>/destroy' method='post'>
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -167,7 +231,7 @@
 				<% end %>
 			<h3>4pm</h3>
 				<% @events.each do |event| %>
-					<% if event.time.hour == 16 %>
+					<% if (event.time.hour == 16)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
 						<div class='event_here'style="background-color: <%= event.color %>"><%=event.name%>
 							<form action='/events/<%= event.id %>/destroy' method='post'>
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -179,7 +243,7 @@
 				<% end %>
 			<h3>5pm</h3>
 				<% @events.each do |event| %>
-					<% if event.time.hour == 17 %>
+					<% if (event.time.hour == 17)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
 						<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
 						<form action='/events/<%= event.id %>/destroy' method='post'>
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -192,7 +256,7 @@
 				<% end %>
 			<h3>6pm</h3>
 				<% @events.each do |event| %>
-					<% if event.time.hour == 18 %>
+					<% if (event.time.hour == 18)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
 						<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
 						<form action='/events/<%= event.id %>/destroy' method='post'>
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -205,7 +269,7 @@
 				<% end %>
 			<h3>7pm</h3>
 				<% @events.each do |event| %>
-					<% if event.time.hour == 19 %>
+					<% if (event.time.hour == 19)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
 						<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
 						<form action='/events/<%= event.id %>/destroy' method='post'>
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -218,7 +282,7 @@
 				<% end %>
 			<h3>8pm</h3>
 				<% @events.each do |event| %>
-					<% if event.time.hour == 20 %>
+					<% if (event.time.hour == 20)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
 						<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
 						<form action='/events/<%= event.id %>/destroy' method='post'>
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -231,7 +295,7 @@
 				<% end %>
 			<h3>9pm</h3>
 				<% @events.each do |event| %>
-					<% if event.time.hour == 21 %>
+					<% if (event.time.hour == 21)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
 						<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
 						<form action='/events/<%= event.id %>/destroy' method='post'>
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -244,7 +308,7 @@
 				<% end %>
 			<h3>10pm</h3>
 				<% @events.each do |event| %>
-					<% if event.time.hour == 22 %>
+					<% if (event.time.hour == 22)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
 						<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
 						<form action='/events/<%= event.id %>/destroy' method='post'>
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -257,7 +321,7 @@
 				<% end %>
 			<h3>11pm</h3>
 				<% @events.each do |event| %>
-					<% if event.time.hour == 23 %>
+					<% if (event.time.hour == 23)  && (event.date.day == Time.now.day) && (event.date.month == Time.now.month) && (event.date.year == Time.now.year) %>
 						<div class='event_here' style="background-color: <%= event.color %>;"><%=event.name%>
 						<form action='/events/<%= event.id %>/destroy' method='post'>
 							<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
