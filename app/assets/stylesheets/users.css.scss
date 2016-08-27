@@ -16,52 +16,49 @@ html, body {
 
 #container{
 	padding:20px 20px;
-	background-color: #FF3B3F;
-	height: 600px;
-	width: 1175px;
-	color:white;
+	background-color:#EFEFEF;
 }
 
-#logo, #content{
-	display: inline-block;
-	vertical-align: top;
-}
 #logo{
-	font-size: 18px;
+	font-size: 50px;
 	background-color: #A9A9A9;
-	padding:20px;
+	padding:3px;
 	border-radius: 5px;
 	text-align: center;
+	border-color:black;
+	color:#FF3B3F;
 }
 
 #content{
-	margin-left: 40px;
+	margin: auto;
+	text-align: center
 }
 
 .one{
-	height:200px;
 	width:300px;
 	display: inline-block;
 	margin: 20px;
 	text-align: center;
 	margin-bottom:40px; 
-	background-color: #1E90FF;
+	background-color: #A9A9A9;
 	vertical-align: top;
 	padding-top:50px;
 	border-radius:5px;
 	font-size: 20px;
-	border-color:red;
 	box-shadow: 5px 5px;
+	color:white;
 }
 
 #quote{
 	text-align: center;
-	/*background-color:#EFEFEF; */
-	border-bottom:2px solid #EFEFEF;
-	border-top:2px solid #EFEFEF;
+	background-color:#A9A9A9; 
+	border-bottom:10px solid white;
+	border-top:10px solid white;
 	margin-bottom: 20px;
 }
-
+#description{
+	background-color: #EFEFEF;
+}
 
 .two{
 	background-color: #A9A9A9;
@@ -76,6 +73,14 @@ html, body {
 	margin-top:30px;
 }
 
+.one:hover{
+	background-color: #CAEBF2;
+}
+
+.two:hover{
+	background-color: #FF3B3F
+}
+
 button{
 	border:none;
 	background-color:#EFEFEF; 
@@ -83,7 +88,7 @@ button{
 }
 
 button:hover{
-	background-color: #FF3B3F
+	background-color: #CAEBF2;
 }
 
 ul{
@@ -92,22 +97,20 @@ ul{
 	margin:0px;
 }
 
-/*#reg_form{
-	list-style:none;
-	padding:0;
-	margin:0;
-}*/
-
 .register_class{
 	display: block;
-	padding: 3px;
 	border-top: 1px solid black;
 	border-left: 1px solid black;
 	border-right: 1px solid black;
+	border-bottom: 1px solid black;
 	margin-bottom: 40px;
+	padding-left:2px;
 	border-radius:5px 5px 0px 0px;
 	height:60px;
 	width:300px;
+	background-color: #FF3B3F;
+	color:white;
+
 }
 
 label{
@@ -121,29 +124,32 @@ label{
 	border:none;
 }
 
+
 .register_button{
 	margin-left:230px;
 }
 
 .register_class input[type="text"]{
-	width:100%;
+	width:90%;
 	display:block;
 	border:none;
-	height:20px;
 	background-color: #FF3B3F;
 	height:50px;
 	font-size:20px;
+
 }
 .reg_sign{
-	background-color: #EFEFEF;
+	background-color: #A9A9A9;
 	display:block;
 	text-align: center;
 	color:#FF3B3F;
 	margin-bottom:-25px;
 	margin-left:-3px;
-	margin-right:-3px;
-	/*margin-top: 20px;*/
+	margin-right:-1px;
 	font-size:10px;
+	border:1px solid black;
+	padding-left:3px;
+	padding-right:3px;
 }
 #left, #middle, #right{
 	display: inline-block;
@@ -151,13 +157,14 @@ label{
 }
 
 #register_button{
-	background-color: #CAEBF2;
+	background-color: #FF3B3F;
 	border-color:#A9A9A9;
 	width:80px;
 	height:50px;
 	text-align: center;
 	border-radius: 5px;
 	display: inline;
+	color:white;
 
 
 }
@@ -184,7 +191,6 @@ label{
 
 .login_errors{
 	margin-bottom: 20px;
-
 }
 
 #login_button:hover{
@@ -194,8 +200,10 @@ label{
 #concerns{
 	height:100px;
 	width:600px;
+	color:#FF3B3F;
 }
 
 #login, #concerns{
 	display: inline-block;
 }
+

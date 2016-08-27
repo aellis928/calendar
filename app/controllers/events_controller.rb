@@ -17,7 +17,6 @@ class EventsController < ApplicationController
         redirect_to("/events/#{session[:user_id]}")
       else
         CalendarMailer.event_email(@user, @event).deliver
-        o09-]\
       redirect_to("/events/#{session[:user_id]}")
       end
     else
@@ -49,6 +48,7 @@ class EventsController < ApplicationController
     end
 end
 
+# update the email text! need to also pass the event through as a parameter!
 
 # maybe some javascript to show details of each of the event?  
 

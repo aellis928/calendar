@@ -11,10 +11,10 @@ light grey -->#EFEFEF
 #container_calendar{
 	background-color: #FF3B3F;
 	padding:20px;
+	margin:auto;
 }
 
-#left_calendar{
-	width:350px;
+/*#left_calendar{
 	height:550px;
 	color:black;
 }
@@ -25,7 +25,7 @@ light grey -->#EFEFEF
 	padding:10px;
 	color:black;
 	overflow: auto;
-}
+}*/
 
 #left_calendar, #right_calendar, #add_event{
 	display: inline-block;
